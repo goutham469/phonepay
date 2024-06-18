@@ -1,0 +1,14 @@
+.receiverInputBox{
+    height: 30px;
+    width: 200px;
+    border-radius: 10px;
+
+    font-size: 18px;
+}
+.userNameText{
+    border: 1px solid black;
+    border-radius: 5px;
+    width: fit-content;
+    padding: 3px;
+    background-color: rgb(225, 226, 226);
+}

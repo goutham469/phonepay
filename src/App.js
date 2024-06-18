@@ -1,24 +1,59 @@
-import logo from './logo.svg';
 import './App.css';
 
+// Landing page components
+import Login from './components/HomePage.js/Login/Login';
+import SignUp from './components/HomePage.js/SignUp/SignUp';
+
+// User components
+import Home from './components/User/Home/Home';
+import Pay from './components/User/Pay/Pay';
+import Recharge from './components/User/Recharge/Recharge';
+// admin
+import Admin from './components/Admin/AdminPage/Admin';
+
+// Dependency libraries
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store from './store';
+
 function App() {
+  const router = createBrowserRouter([
+    {
+      path: '',
+      element: <Login />
+    },
+    {
+      path: 'signup',
+      element: <SignUp />
+    },
+    {
+      path: 'user',
+      element: <Home />,
+      children: [
+        {
+          path: '',
+          element: <Pay />
+        },
+        {
+          path: 'recharge',
+          element: <Recharge />
+        }
+      ]
+    },
+    {
+      path:'admin',
+      element:<Admin/>
+    }
+  ]);
+
+  console.log(store.getState());
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <RouterProvider router={router} />
+      </div>
+    </Provider>
   );
 }
 

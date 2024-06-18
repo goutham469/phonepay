@@ -1,0 +1,15 @@
+.signUpbutton{
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: rgb(154, 150, 150);
+    font-size: 20px;
+    padding: 5px;
+
+    position: relative;
+    left: 110px;
+}
+.signUpbutton:hover{
+    background-color: rgb(127, 226, 88);
+    color: rgb(0, 0, 0);
+    border: none;
+}
